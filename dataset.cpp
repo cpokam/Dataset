@@ -45,30 +45,23 @@ void Dataset::print() {
 
 bool Dataset::isValidateByte(const std::bitset<8> &byte) {
     bool result = false;
+
+    //Assign new values for the left and right bytes, with the string initialization
+    left=std::bitset<4>(byte.to_string(),0,4);
+    right=std::bitset<4>(byte.to_string(),4);
     
-    //Construct left and right bytes with the string initialization of byte
-    std::bitset<4>left(byte.to_string(),0,4);
-    std::bitset<4>right(byte.to_string(),4);
-    
-    if (left.size()-left.count() == right.size()-right.count()){
+    if (left.size()-left.count() == right.size()-right.count())
         result = true;
-    }
-  return result;
+    return result;
 }
 
-std::bitset<8> Dataset::setByte(const std::bitset<8> &byte) {
+std::bitset<8> Dataset::setByte() {
     std::bitset<8>result;
 
-    //Construct left and right bytes with the string initialization of byte
-    //Starting at position 0 for a length of 4 
-    //Starting at position 4 to the end
-    std::bitset<4>left(byte.to_string(),0,4);
-    std::bitset<4>right(byte.to_string(),4);
-
-    //Use the integer initialization of byte to assign new values.
+    //Assign new values for the left and right bytes, with the binary initialization
     left=std::bitset<4>(left.size()-left.count());
     right=std::bitset<4>(right.count());
-    
+
     std::string s(left.to_string()+right.to_string());
     result= std::bitset<8>(s);
 
@@ -78,7 +71,7 @@ std::bitset<8> Dataset::setByte(const std::bitset<8> &byte) {
 void Dataset::setDataset() {
     for(size_t i=0; i<m_Dataset.size();++i){
         if(isValidateByte(m_Dataset[i])){
-            m_Dataset[i]= setByte(m_Dataset[i]);
+            m_Dataset[i]= setByte();
         }
     }
 }
