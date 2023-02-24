@@ -46,6 +46,7 @@ void Dataset::print() {
 bool Dataset::isValidateByte(const std::bitset<8> &byte) {
     bool result = false;
     
+    //Construct left and right bytes with the string initialization of byte
     std::bitset<4>left(byte.to_string(),0,4);
     std::bitset<4>right(byte.to_string(),4);
     
@@ -58,9 +59,13 @@ bool Dataset::isValidateByte(const std::bitset<8> &byte) {
 std::bitset<8> Dataset::setByte(const std::bitset<8> &byte) {
     std::bitset<8>result;
 
+    //Construct left and right bytes with the string initialization of byte
+    //Starting at position 0 for a length of 4 
+    //Starting at position 4 to the end
     std::bitset<4>left(byte.to_string(),0,4);
     std::bitset<4>right(byte.to_string(),4);
 
+    //Use the integer initialization of byte to assign new values.
     left=std::bitset<4>(left.size()-left.count());
     right=std::bitset<4>(right.count());
     
