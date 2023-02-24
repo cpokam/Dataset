@@ -5,6 +5,6 @@ int main()
 {
     Dataset data(10);
     data.print();
-    data.sortDataset();
+    data.setDataset();
     data.print();
 }
