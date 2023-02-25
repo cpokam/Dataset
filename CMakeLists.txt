@@ -3,4 +3,4 @@ project(Dataset)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Dataset main.cpp dataset.cpp dataset.h)
+add_executable(dataset main.cpp dataset.cpp dataset.h)
