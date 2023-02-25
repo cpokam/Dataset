@@ -3,7 +3,7 @@
 
 int main()
 {
-    Dataset data(10);
+    Dataset data(15);
     data.print();
     data.setDataset();
     data.print();
