@@ -39,7 +39,7 @@ public:
     bool isValidateByte(const std::bitset<8>&);
 
     /**
-     * @brief Modify the Dataset object if it is valid
+     * @brief Modify the Dataset object if the validity check was successfull
      * 
      */
     void setDataset();
